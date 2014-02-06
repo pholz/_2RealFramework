@@ -26,7 +26,10 @@
 #undef M_PI
 
 #include "GL/glew.h"
-#include "GL/wglew.h"
+#ifndef _UNIX
+    #include "GL/wglew.h"
+    #include <Windows.h>
+#endif
 #include "SDL.h"
 
 #include "Poco/Mutex.h"
@@ -36,7 +39,7 @@
 #endif
 #include <sstream>
 
-#include <Windows.h>
+
 
 using std::string;
 using std::cout;
@@ -186,16 +189,16 @@ int main( int argc, char *argv[] )
 		SDL_GL_SetSwapInterval( 1 );
 
 		Engine &testEngine = Engine::instance();
-		testEngine.setBaseDirectory( "." );
+		testEngine.setBaseDirectory( "../lib" );
 
-		BundleHandle testBundle = testEngine.loadBundle( "ImageTesting" );
+		BundleHandle testBundle = testEngine.loadBundle( "libImageTestingBundle" );
 
 		BundleInfo const& info = testBundle.getBundleInfo();
 
 
 		BlockHandle out = testBundle.createBlockInstance( "image_out" );
 		InletHandle vecTest = out.getInletHandle( "image_out_vec2" );
-		vecTest.setValue< _2Real::Vec2 >( _2Real::Vec2( 2.0, 3.0 ) );
+		//vecTest.setValue< _2Real::Vec2 >( _2Real::Vec2( 2.0, 3.0 ) );
 		out.setUpdateRate( 1.0 );
 		out.setup();
 		out.start();
