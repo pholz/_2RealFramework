@@ -291,7 +291,7 @@ namespace _2Real
 			for ( EngineImpl::BundleConstIterator it = currBundles.begin(); it != currBundles.end(); ++it )
 				bundles.push_back( ( *it )->getHandle() );
 
-			EngineImpl::BlockInstances &currBlocks = m_EngineImpl.getCurrentBlockInstances();
+			const EngineImpl::BlockInstances &currBlocks = m_EngineImpl.getCurrentBlockInstances();
 			Engine::BlockHandles blocks;
 			for ( EngineImpl::BlockInstanceConstIterator it = currBlocks.begin(); it != currBlocks.end(); ++it )
 				blocks.push_back( ( *it )->getHandle() );
