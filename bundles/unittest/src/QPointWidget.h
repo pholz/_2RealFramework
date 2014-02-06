@@ -4,8 +4,8 @@
 #include "_2RealApplication.h"
 
 #include <QFrame>
-#include <QSpinbox>
-#include <QDoubleSpinbox>
+#include <QSpinBox>
+#include <QDoubleSpinBox>
 #include <QLineEdit>
 #include <QHBoxLayout>
 
@@ -33,7 +33,7 @@ private:
 	QLineEdit*			m_LabelWidget;
 	QSpinBox*			m_IdWidget;
 
-	_2Real::app::InletHandle&	 m_InletHandle; 
+	_2Real::app::InletHandle&	 m_InletHandle;
 };
 
 #endif // QPOINTWIDGET_H

@@ -4,7 +4,7 @@
 #include "_2RealApplication.h"
 #include <QFrame>
 #include <QLayout>
-#include <QLineedit>
+#include <QLineEdit>
 
 class QFileDialogWidget : public QFrame
 {
@@ -21,7 +21,7 @@ public:
 private:
 	QLayout*					m_Layout;
 	QLineEdit*					m_PathEdit;
-	_2Real::app::InletHandle&	m_InletHandle; 
+	_2Real::app::InletHandle&	m_InletHandle;
 };
 
 #endif // QFILEDIALOGWIDGET_H

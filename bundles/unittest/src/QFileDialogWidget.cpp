@@ -1,7 +1,7 @@
 #include "QFileDialogWidget.h"
 #include <QLineEdit>
 #include <QPushButton>
-#include <QFiledialog>
+#include <QFileDialog>
 
 QFileDialogWidget::QFileDialogWidget(_2Real::app::InletHandle& inlet, QWidget *parent)
 	: m_InletHandle(inlet), QFrame(parent)

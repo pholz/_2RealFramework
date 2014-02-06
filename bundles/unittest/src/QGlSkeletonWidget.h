@@ -1,7 +1,7 @@
 #ifndef QGLSKELETONWIDGET_H
 #define QGLSKELETONWIDGET_H
 
-#include <qgl.h>
+#include <Qt/qgl.h>
 #include "qglviewer.h"
 #include "_2RealDatatypes.h"
 

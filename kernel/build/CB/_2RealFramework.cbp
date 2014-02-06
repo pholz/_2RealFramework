@@ -93,7 +93,6 @@
 			<Add directory="/usr/local/include" />
 		</Compiler>
 		<Linker>
-			<Add library="PocoData" />
 			<Add library="PocoNet" />
 			<Add library="PocoXML" />
 			<Add directory="/usr/local/lib" />
@@ -101,7 +100,13 @@
 		<Unit filename="../../src/_2RealApplication.h" />
 		<Unit filename="../../src/_2RealBlock.h" />
 		<Unit filename="../../src/_2RealBundle.h" />
+		<Unit filename="../../src/_2RealConfigLoader.cpp" />
+		<Unit filename="../../src/_2RealConfigLoader.h" />
 		<Unit filename="../../src/_2RealDatatypes.h" />
+		<Unit filename="../../src/_2RealSystemState.cpp" />
+		<Unit filename="../../src/_2RealSystemState.h" />
+		<Unit filename="../../src/_2RealSystemStateImpl.cpp" />
+		<Unit filename="../../src/_2RealSystemStateImpl.h" />
 		<Unit filename="../../src/app/_2RealAppData.cpp" />
 		<Unit filename="../../src/app/_2RealAppData.h" />
 		<Unit filename="../../src/app/_2RealBlockHandle.cpp" />

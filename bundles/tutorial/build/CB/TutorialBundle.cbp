@@ -36,6 +36,7 @@
 		<Compiler>
 			<Add option="-std=c++11" />
 			<Add option="-Wall" />
+			<Add option="`pkg-config --cflags eigen3`" />
 			<Add option="-fPIC" />
 			<Add option="-D_2REAL_UNIT_TEST_EXPORT" />
 			<Add directory="../../../../kernel/src" />
