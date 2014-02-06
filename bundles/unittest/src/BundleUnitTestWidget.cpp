@@ -72,11 +72,11 @@ void BundleUnitTestWidget::setup(std::string strBundleName)
 bool BundleUnitTestWidget::loadBundle(std::string strFile)
 {
 	std::vector<std::string> directories;
-	
+
 	directories.push_back("../../bin/");
 	directories.push_back("../../experimental/bin/");
 	directories.push_back("../../core/bin/");
-	directories.push_back("../../tutorial/bin/");
+	directories.push_back("../../../tutorial/lib/");
 	directories.push_back("./");
 
 	QString curDir = QDir::currentPath();
@@ -86,7 +86,11 @@ bool BundleUnitTestWidget::loadBundle(std::string strFile)
 	for(int i=0; i<directories.size(); i++)
 	{
 		QDir bundlesDirectory(QString::fromStdString(directories[i]));
-		QStringList list = bundlesDirectory.entryList(QStringList(QString::fromStdString(strFile + "*.*")));
+
+		QStringList allList = bundlesDirectory.entryList();
+		qDebug() << "dir " << bundlesDirectory.absolutePath() << ": " << allList;
+
+		QStringList list = bundlesDirectory.entryList(QStringList(QString::fromStdString("lib" + strFile + "*.*")));
 
 		if(list.size()>0)
 		{
@@ -100,12 +104,12 @@ bool BundleUnitTestWidget::loadBundle(std::string strFile)
 		return false;
 	}
 
-	try 
+	try
 	{
 		// load bundles for use in runtime engine
 		m_Engine.setBaseDirectory( directories[iDirIndex] );
-		m_BundleHandle = m_Engine.loadBundle( strFile );
-	
+		m_BundleHandle = m_Engine.loadBundle( "lib" + strFile );
+
 		BundleInfo bundleInfo = m_BundleHandle.getBundleInfo();
 		m_BlockInfos = bundleInfo.exportedBlocks;
 		return true;

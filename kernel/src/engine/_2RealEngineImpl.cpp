@@ -49,7 +49,7 @@
 	#ifndef _DEBUG
 		#define shared_library_suffix ".so"
 	#else
-		#define shared_library_suffix "_d.so"
+		#define shared_library_suffix "D.so"
 	#endif
 #elif _2REAL_MAC
 	#ifndef _DEBUG
