@@ -28,12 +28,17 @@ solution "TestBundle"
             libdirs {
                REALROOT .. "/kernel/lib"
             }
+
             
             configuration "Debug"
-            defines { "DEBUG" }
-            flags {"Symbols"}
+                defines { "DEBUG" }
+                flags {"Symbols"}
+                links { "_2RealFrameworkD" }
+                targetsuffix "D"
             
             configuration "Release"
-            defines {"NDEBUG"}
-            flags {"Optimize"}
+                defines {"NDEBUG"}
+                flags {"Optimize"}
+                links { "_2RealFramework" }
+            
             
