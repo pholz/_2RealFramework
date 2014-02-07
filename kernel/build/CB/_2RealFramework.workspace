@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_workspace_file>
 	<Workspace title="_2Real-Workspace">
-		<Project filename="_2RealFramework.cbp" active="1" />
+		<Project filename="_2RealFramework.cbp" />
+		<Project filename="../../../bundles/tutorial/build/CB/TutorialBundle.cbp" />
+		<Project filename="../../../bundles/tutorial/test/build/CB/TutorialBundleTest.cbp" />
+		<Project filename="../../../testing/build/cb/ImageTestingApp/ImageTestingApp/ImageTestingApp.cbp" />
+		<Project filename="../../../testing/build/cb/ImageTestingBundle/ImageTestingBundle/ImageTestingBundle.cbp" />
+		<Project filename="../../../bundles/experimental/CameraCaptureBundle/build/CB/CameraCaptureBundle/CameraCaptureBundle.cbp" />
 	</Workspace>
 </CodeBlocks_workspace_file>

@@ -127,5 +127,25 @@ solution "_2Real"
             }
 
             links { "QtGui", "QtCore", "_2RealFramework", "UnitTestBundle" }
+
+        project "TestApp2"
+            kind "WindowedApp"
+            PROJROOT = REALROOT .. "/bundles/examples/testApp2"
+            targetdir ( PROJROOT .. "/../bin" )
+
+            files {
+               PROJROOT .. "/src/main.cpp"
+            }
+            
+            includedirs {
+               REALROOT .. "/kernel/src",
+               EIGEN_INCLUDE_DIRS
+            }
+
+            libdirs {
+               REALROOT .. "/kernel/lib"
+            }
+
+            links { "_2RealFramework" }
             
             
