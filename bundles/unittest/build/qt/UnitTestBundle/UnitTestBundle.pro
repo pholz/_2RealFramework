@@ -6,7 +6,7 @@
 
 QT       += opengl xml
 
-TARGET = UnitTestBundle
+
 TEMPLATE = lib
 
 DEFINES += UNITTESTBUNDLE_LIBRARY _UNIX
@@ -38,7 +38,24 @@ unix {
     INSTALLS += target
 }
 
-unix:!macx: LIBS += -L$$PWD/../../../../../kernel/lib/ -l_2RealFrameworkD
+CONFIG(debug, debug|release) {
+    LIBS += -L$$PWD/../../../../../kernel/lib/ -l_2RealFrameworkD
+}
+
+CONFIG(release, debug|release) {
+    LIBS += -L$$PWD/../../../../../kernel/lib/ -l_2RealFramework
+}
+
+unix:!macx {
+    Debug {
+
+        TARGET = UnitTestBundleD
+    }
+    Release {
+
+        TARGET = UnitTestBundle
+    }
+}
 
 INCLUDEPATH += $$PWD/../../../../../kernel
 DEPENDPATH += $$PWD/../../../../../kernel

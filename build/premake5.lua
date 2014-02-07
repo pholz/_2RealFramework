@@ -6,6 +6,7 @@ solution "_2Real"
         if os.is("linux") 
         then
            EIGEN_INCLUDE_DIRS = "/usr/include/eigen3"
+           QT4_INCLUDE_DIRS = "/usr/include/qt4"
            defines { "_UNIX", "_2REAL_UNIX" }
            buildoptions { "-std=c++11" }
         end
@@ -72,6 +73,10 @@ solution "_2Real"
                REALROOT .. "/kernel/src",
                EIGEN_INCLUDE_DIRS
             }
+
+            libdirs {
+               REALROOT .. "/kernel/lib"
+            }
             
             if os.is("linux") 
             then
@@ -79,12 +84,12 @@ solution "_2Real"
             end
 
             links {  "SDL2", "GL", "GLEW", "PocoNet", "PocoFoundation", "PocoUtil", "_2RealFramework" }
-            linkoptions { "-Wl,-rpath,'" .. REALROOT .. "/kernel/lib" .. "'" }
+--            linkoptions { "-Wl,-rpath,'" .. REALROOT .. "/kernel/lib" .. "'" }
 
         project "TestBundle"
             kind "SharedLib"
-            PROJROOT = REALROOT .. "/bundles/examples/test"
-            targetdir ( PROJROOT .. "/lib" )
+            PROJROOT = REALROOT .. "/bundles/examples/testBundle"
+            targetdir ( PROJROOT .. "/../lib" )
 
             files {
                PROJROOT .. "/src/**.h",
@@ -96,10 +101,31 @@ solution "_2Real"
                EIGEN_INCLUDE_DIRS
             }
             
-            libdirs {
-               REALROOT .. "/kernel/lib"
+            links { "_2RealFramework" }
+
+        project "TestApp"
+            kind "WindowedApp"
+            PROJROOT = REALROOT .. "/bundles/examples/testApp"
+            targetdir ( PROJROOT .. "/../bin" )
+
+            files {
+               PROJROOT .. "/src/main.cpp"
             }
             
-            links { "_2RealFramework" }
+            includedirs {
+               REALROOT .. "/kernel/src",
+               EIGEN_INCLUDE_DIRS,
+               QT4_INCLUDE_DIRS,
+               QT4_INCLUDE_DIRS .. "/QtGui",
+               QT4_INCLUDE_DIRS .. "/QtCore",
+               REALROOT .. "/bundles/unittest/include"
+            }
+
+            libdirs {
+               REALROOT .. "/kernel/lib",
+               REALROOT .. "/bundles/unittest/lib"
+            }
+
+            links { "QtGui", "QtCore", "_2RealFramework", "UnitTestBundle" }
             
             
