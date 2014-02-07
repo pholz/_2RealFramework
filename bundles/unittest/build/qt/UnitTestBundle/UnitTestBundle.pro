@@ -38,23 +38,16 @@ unix {
     INSTALLS += target
 }
 
+DESTDIR = "../../../lib"
+
 CONFIG(debug, debug|release) {
     LIBS += -L$$PWD/../../../../../kernel/lib/ -l_2RealFrameworkD
+    TARGET = UnitTestBundleD
 }
 
 CONFIG(release, debug|release) {
     LIBS += -L$$PWD/../../../../../kernel/lib/ -l_2RealFramework
-}
-
-unix:!macx {
-    Debug {
-
-        TARGET = UnitTestBundleD
-    }
-    Release {
-
-        TARGET = UnitTestBundle
-    }
+    TARGET = UnitTestBundle
 }
 
 INCLUDEPATH += $$PWD/../../../../../kernel
